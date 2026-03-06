@@ -1,0 +1,11 @@
+pyspark
+pandas
+langchain
+langgraph
+langchain-google-genai
+qdrant-client
+fastapi
+uvicorn
+mlflow
+python-dotenv
+pyarrow

@@ -1,0 +1,24 @@
+# Clinical Trial Intelligence Platform (MVP)
+
+An end-to-end AI platform that processes large-scale clinical trial data and uses an Agentic RAG workflow to reason about drug interactions.
+
+
+
+## 🚀 Tech Stack
+- **Data Engineering:** PySpark (ETL), Parquet
+- **AI Orchestration:** LangGraph, LangChain
+- **LLM:** Google Gemini 2.0 Flash (API)
+- **Backend:** FastAPI, Uvicorn
+- **DevOps:** Docker, Python-dotenv
+
+## 🏗️ Architecture
+1. **Phase 1 (Data):** A PySpark pipeline cleans raw CSV/JSON data from ClinicalTrials.gov, stripping HTML and normalizing text.
+2. **Phase 2 (Agent):** A LangGraph state machine handles a "Retrieve-and-Reason" workflow.
+3. **Phase 3 (API):** A containerized FastAPI service serves endpoints for real-time clinical queries.
+
+## 🛠️ Installation & Setup
+1. **Clone & Environment:**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt

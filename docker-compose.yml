@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # The Vector Database
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+    volumes:
+      - ./qdrant_storage:/qdrant/storage
+
+  # The MLflow tracking server
+  mlflow:
+    image: ghcr.io/mlflow/mlflow
+    ports:
+      - "5050:5000"
+    command: mlflow ui --host 0.0.0.0
+
+  # Your Clinical App
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - qdrant
+      - mlflow
